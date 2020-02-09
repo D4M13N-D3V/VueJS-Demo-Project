@@ -1,6 +1,10 @@
 <template>
     <div class="header">
         <h1>Todo List</h1>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
     </div>
 </template>
 
@@ -22,4 +26,17 @@ export default {
     color: rgb(139, 138, 138);
     text-decoration: none;
   }
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: orange;
+}
+
+#nav a.router-link-exact-active {
+  color: yellow;
+}
 </style>
