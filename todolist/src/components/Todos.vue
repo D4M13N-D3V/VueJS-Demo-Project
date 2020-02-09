@@ -3,7 +3,8 @@
         <!-- Need to give unique value for key bind -->
         <ul v-bind:key="todo.id" v-for="todo in todos">
             <!--           propname  value-->
-            <TodoItem v-bind:todo="todo"/>
+            <!-- add a v-on:emittername to catch event and emit again to parent -->
+            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)"/>
         </ul>
     </div>
 </template>

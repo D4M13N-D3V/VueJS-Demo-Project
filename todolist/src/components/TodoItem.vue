@@ -3,10 +3,11 @@
     <div class="todoItem" v-bind:class="{'isCompleted':todo.completed}">
         <p>
             <!--add event to a method on the component, in this case the change of value event-->
-            <input type="checkbox">
+            <input v-on:change="markComplete" type="checkbox">
             {{todo.title}}
-            <!--add event to a method on the component, in this case the click event-->
-            <button class="deleteButton">Delete</button>
+            <!--need to emit upwards to parent component-->
+            <!-- @click same as v-on -->
+            <button @click="$emit('del-todo', todo.id)" class="deleteButton">Delete</button>
         </p>
     </div>
 </template>
@@ -14,7 +15,12 @@
 <script>
 export default {
     name:"TodoItem",
-    props:["todo"]
+    props:["todo"],
+    methods: {
+        markComplete(){
+            this.todo.completed = !this.todo.completed
+        }
+    }
 }
 </script>
 
