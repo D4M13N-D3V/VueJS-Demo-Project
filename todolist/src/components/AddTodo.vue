@@ -19,6 +19,7 @@ export default {
     },
     methods:{
         addToDo(e){
+            //prevent from actually submitting form.
             e.preventDefault();
             const newTodo = {
                 id: uuid.v4(),
